@@ -12,8 +12,8 @@ void Game::Start(void)
 
   //create a window of resolution 1280x720 at 32bpp colour
   _mainWindow.create(sf::VideoMode(1280, 720, 32), "Rettroix Engine Zero");
-  //Switch the game to playing state
-  _gameState = Game::GameState::Playing;
+  //when game starts show splash screen
+  _gameState = Game::GameState::ShowingSplash;
 
   //start the game loop forever untill isExiting is called
   while (!IsExiting())
@@ -42,6 +42,16 @@ void Game::GameLoop()
     //do things based on current game state
     switch (_gameState)
     {
+    case Game::GameState::ShowingMenu:
+    {
+      ShowMenu();
+      break;
+    }
+    case Game::GameState::ShowingSplash:
+    {
+      ShowSplashScreen();
+      break;
+    }
       //when playing
     case Game::GameState::Playing:
     {
@@ -61,6 +71,32 @@ void Game::GameLoop()
     }
   }
 }
+
+void Game::ShowSplashScreen()
+{
+  //creates a splashscreen object
+  SplashScreen splashScreen;
+  //calls the show method
+  splashScreen.Show(_mainWindow);
+  //change state when splashscreen has ended
+  _gameState = Game::GameState::ShowingMenu;
+}
+
+void Game::ShowMenu()
+{
+  //create main menu object
+  MainMenu mainMenu;
+  MainMenu::MenuResult result = mainMenu.Show(_mainWindow);
+  switch (result)
+    {
+    case MainMenu::MenuResult::Exit:
+      _gameState = Game::GameState::Exiting;
+      break;
+    case MainMenu::MenuResult::Play:
+      _gameState = Game::GameState::Playing;
+      break;
+     }
+ }
 
 //Are static so need to be instanced manually
 

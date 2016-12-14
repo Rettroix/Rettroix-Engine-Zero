@@ -12,6 +12,8 @@ private:
   static bool IsExiting();
   static void GameLoop();
 
+  static void ShowSplashScreen();
+  static void ShowMenu();
   //The states the game can be in
   enum class GameState
   {

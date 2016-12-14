@@ -1,5 +1,4 @@
 #include "StdAfx.h"
-#include "SplashScreen.h"
 
 
 void SplashScreen::Show(sf::RenderWindow & renderWindow)
@@ -7,7 +6,7 @@ void SplashScreen::Show(sf::RenderWindow & renderWindow)
   //create texture called image
   sf::Texture image;
   //load texture from file and if it's not there return
-  if (image.loadFromFile("images/SplashScreen.png") != true)
+  if (image.loadFromFile("images/splash.png") != true)
   {
     return;
   }
