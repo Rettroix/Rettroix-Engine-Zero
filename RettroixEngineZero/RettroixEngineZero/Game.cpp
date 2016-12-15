@@ -1,7 +1,6 @@
 #include "Game.h"
-
-
-
+#include "SplashScreen.h"
+#include "MainMenu.h"
 void Game::Start(void)
 {
   //The game state should start uninitialized so return if it is  
@@ -12,6 +11,9 @@ void Game::Start(void)
 
   //create a window of resolution 1280x720 at 32bpp colour
   _mainWindow.create(sf::VideoMode(1280, 720, 32), "Rettroix Engine Zero");
+  //load the players images and positions
+  _player1.Load("images/paddle.png");
+  _player1.SetPosition((1280 / 2) - 45, 700);
   //when game starts show splash screen
   _gameState = Game::GameState::ShowingSplash;
 
@@ -55,8 +57,10 @@ void Game::GameLoop()
       //when playing
     case Game::GameState::Playing:
     {
-      //clear the screen to red
-      _mainWindow.clear(sf::Color(255, 0, 0));
+      //clear the screen to black
+      _mainWindow.clear(sf::Color(0, 0, 0));
+      //draw the player to screen
+      _player1.Draw(_mainWindow);
       //then display it
       _mainWindow.display();
 
@@ -103,3 +107,5 @@ void Game::ShowMenu()
 //when Game is created, its _gameState value will start as unitialized
 Game::GameState Game::_gameState = GameState::Uninitialized;
 sf::RenderWindow Game::_mainWindow;
+//because _player1 is a static member variable, it needs to be instantiated in the global namespace
+PlayerPaddle Game::_player1;

@@ -1,6 +1,6 @@
 #pragma once
 #include "stdafx.h"
-
+#include "PlayerPaddle.h"
 class Game
 {
 
@@ -23,6 +23,8 @@ private:
 
   static GameState _gameState;
   static sf::RenderWindow _mainWindow;
+  //the player
+  static PlayerPaddle _player1;
 };
 //Members of this class are static
 //no matter how many static objects of the class are created, there 

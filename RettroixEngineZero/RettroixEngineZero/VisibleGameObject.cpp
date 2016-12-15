@@ -1,11 +1,9 @@
-#include "StdAfx.h"
 #include "VisibleGameObject.h"
 
 
 VisibleGameObject::VisibleGameObject()
-  : _isLoaded(false)
 {
-  //_isLoaded = false;
+  _isLoaded = false;
 }
 
 

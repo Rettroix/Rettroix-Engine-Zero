@@ -19,5 +19,3 @@
 #include <iostream>
 #include <cassert>
 #include <list>
-#include "SplashScreen.h"
-#include "MainMenu.h"

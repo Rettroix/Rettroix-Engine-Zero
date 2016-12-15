@@ -1,6 +1,6 @@
 
+#include "MainMenu.h"
 
-#include "stdafx.h"
 
 
 MainMenu::MenuResult MainMenu::Show(sf::RenderWindow& window)

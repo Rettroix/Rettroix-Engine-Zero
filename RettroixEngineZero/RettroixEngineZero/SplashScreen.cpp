@@ -1,4 +1,4 @@
-#include "StdAfx.h"
+#include "SplashScreen.h"
 
 
 void SplashScreen::Show(sf::RenderWindow & renderWindow)
