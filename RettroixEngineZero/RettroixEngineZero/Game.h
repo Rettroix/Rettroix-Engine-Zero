@@ -1,13 +1,17 @@
 #pragma once
 #include "stdafx.h"
 #include "PlayerPaddle.h"
+#include "GameObjectManager.h"
 class Game
 {
 
 public:
   //get's the game started
   static void Start();
-
+  static sf::RenderWindow& GetWindow();
+  const static sf::Event& GetInput();
+  const static int SCREEN_WIDTH = 1280;
+  const static int SCREEN_HEIGHT = 720;
 private:
   static bool IsExiting();
   static void GameLoop();
@@ -23,8 +27,8 @@ private:
 
   static GameState _gameState;
   static sf::RenderWindow _mainWindow;
-  //the player
-  static PlayerPaddle _player1;
+  //the object manager
+  static GameObjectManager _gameObjectManager;
 };
 //Members of this class are static
 //no matter how many static objects of the class are created, there 

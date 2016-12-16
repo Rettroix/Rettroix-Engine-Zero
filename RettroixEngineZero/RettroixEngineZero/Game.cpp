@@ -1,6 +1,7 @@
 #include "Game.h"
 #include "SplashScreen.h"
 #include "MainMenu.h"
+#include "Gameball.h"
 void Game::Start(void)
 {
   //The game state should start uninitialized so return if it is  
@@ -11,9 +12,14 @@ void Game::Start(void)
 
   //create a window of resolution 1280x720 at 32bpp colour
   _mainWindow.create(sf::VideoMode(1280, 720, 32), "Rettroix Engine Zero");
-  //load the players images and positions
-  _player1.Load("images/paddle.png");
-  _player1.SetPosition((1280 / 2) - 45, 700);
+  //add player to game object and positions
+  PlayerPaddle *player1 = new PlayerPaddle();
+  player1->SetPosition((1024 / 2) - 45, 700);
+  _gameObjectManager.Add("Paddle1", player1);
+
+  GameBall *ball = new GameBall();
+  ball->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 15);
+  _gameObjectManager.Add("Ball", ball);
   //when game starts show splash screen
   _gameState = Game::GameState::ShowingSplash;
 
@@ -35,45 +41,59 @@ bool Game::IsExiting()
   else
     return false;
 }
+sf::RenderWindow& Game::GetWindow()
+{
+  return _mainWindow;
+}
+
+const sf::Event& Game::GetInput()
+{
+  sf::Event currentEvent;
+  _mainWindow.pollEvent(currentEvent);
+  return currentEvent;
+}
 
 void Game::GameLoop()
 {
   sf::Event currentEvent;
-  while (_mainWindow.pollEvent(currentEvent))
-  {
+  _mainWindow.pollEvent(currentEvent);
+
+
     //do things based on current game state
     switch (_gameState)
     {
-    case Game::GameState::ShowingMenu:
-    {
-      ShowMenu();
-      break;
-    }
-    case Game::GameState::ShowingSplash:
-    {
-      ShowSplashScreen();
-      break;
-    }
-      //when playing
-    case Game::GameState::Playing:
-    {
-      //clear the screen to black
-      _mainWindow.clear(sf::Color(0, 0, 0));
-      //draw the player to screen
-      _player1.Draw(_mainWindow);
-      //then display it
-      _mainWindow.display();
-
-      //if the current event is closed
-      if (currentEvent.type == sf::Event::Closed)
+      case Game::GameState::ShowingMenu:
       {
-        //then change the state to exiting
-        _gameState = Game::GameState::Exiting;
+        ShowMenu();
+        break;
       }
-      break;
+      case Game::GameState::ShowingSplash:
+      {
+        ShowSplashScreen();
+        break;
+      }
+        //when playing
+      case Game::GameState::Playing:
+      {
+        //clear the screen to black
+        _mainWindow.clear(sf::Color(0, 0, 0));
+        //draw the game objects to screen
+        _gameObjectManager.DrawAll(_mainWindow);
+        _gameObjectManager.UpdateAll();
+
+        //then display it
+        _mainWindow.display();
+
+        //if the current event is closed
+        if (currentEvent.type == sf::Event::Closed)
+        {
+          //then change the state to exiting
+          _gameState = Game::GameState::Exiting;
+        }
+        break;
+      }
     }
-    }
-  }
+  
 }
 
 void Game::ShowSplashScreen()
@@ -107,5 +127,5 @@ void Game::ShowMenu()
 //when Game is created, its _gameState value will start as unitialized
 Game::GameState Game::_gameState = GameState::Uninitialized;
 sf::RenderWindow Game::_mainWindow;
-//because _player1 is a static member variable, it needs to be instantiated in the global namespace
-PlayerPaddle Game::_player1;
+//because _gameObjectManager is a static member variable, it needs to be instantiated in the global namespace
+GameObjectManager Game::_gameObjectManager;
