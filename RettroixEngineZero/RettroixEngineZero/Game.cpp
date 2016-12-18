@@ -53,6 +53,11 @@ const sf::Event& Game::GetInput()
   return currentEvent;
 }
 
+const GameObjectManager& Game::GetGameObjectManager()
+{
+  return Game::_gameObjectManager;
+}
+
 void Game::GameLoop()
 {
   sf::Event currentEvent;

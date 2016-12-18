@@ -1,6 +1,15 @@
-﻿  PlayerPaddle.cpp
+﻿  VisibleGameObject.cpp
+  GameBall.cpp
+c:\users\elliot anderson\documents\github\rettroixenginezero\rettroixenginezero\rettroixenginezero\gameball.cpp(14): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+c:\users\elliot anderson\documents\github\rettroixenginezero\rettroixenginezero\rettroixenginezero\gameball.cpp(102): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   Game.cpp
   Generating Code...
 c:\users\elliot anderson\documents\github\rettroixenginezero\rettroixenginezero\rettroixenginezero\game.cpp(53): warning C4172: returning address of local variable or temporary: currentEvent
+  Compiling...
+  Rettroix.cpp
+  PlayerPaddle.cpp
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  GameObjectManager.cpp
   RettroixEngineZero.vcxproj -> C:\Users\Elliot Anderson\Documents\GitHub\RettroixEngineZero\RettroixEngineZero\Debug\RettroixEngineZero.exe
   RettroixEngineZero.vcxproj -> C:\Users\Elliot Anderson\Documents\GitHub\RettroixEngineZero\RettroixEngineZero\Debug\RettroixEngineZero.pdb (Full PDB)

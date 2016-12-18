@@ -81,15 +81,9 @@ float VisibleGameObject::GetWidth() const
   return _sprite.getLocalBounds().width;
 }
 
+//returns a rectangle that defines the boundaries of our sprite
 sf::Rect<float> VisibleGameObject::GetBoundingRect() const
 {
-  sf::Vector2f size = _sprite.getGlobalBounds();
-  sf::Vector2f position = _sprite.getPosition();
+  return _sprite.getGlobalBounds();
 
-  return sf::Rect<float>(
-    position.x - size.x / 2,
-    position.y - size.y / 2,
-    position.x + size.x / 2,
-    position.y + size.y / 2
-    );
 }
