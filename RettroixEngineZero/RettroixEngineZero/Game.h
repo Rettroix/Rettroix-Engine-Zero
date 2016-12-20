@@ -2,6 +2,8 @@
 #include "stdafx.h"
 #include "PlayerPaddle.h"
 #include "GameObjectManager.h"
+#include "ServiceLocator.h"
+#include "SFMLSoundProvider.h"
 class Game
 {
 

@@ -12,6 +12,10 @@ void Game::Start(void)
 
   //create a window of resolution 1280x720 at 32bpp colour
   _mainWindow.create(sf::VideoMode(1280, 720, 32), "Rettroix Engine Zero");
+
+  SFMLSoundProvider soundProvider;
+  ServiceLocator::RegisterServiceLocator(&soundProvider);
+  ServiceLocator::GetAudio()->PlaySong("audio/Soundtrack.ogg", true);
   //add player to game object and positions
   PlayerPaddle *player1 = new PlayerPaddle();
   player1->SetPosition((1024 / 2) - 45, 700);

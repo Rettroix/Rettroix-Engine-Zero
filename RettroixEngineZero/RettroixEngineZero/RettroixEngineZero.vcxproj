@@ -155,6 +155,8 @@
     <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="PlayerPaddle.cpp" />
     <ClCompile Include="Rettroix.cpp" />
+    <ClCompile Include="ServiceLocator.cpp" />
+    <ClCompile Include="SFMLSoundProvider.cpp" />
     <ClCompile Include="SplashScreen.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="VisibleGameObject.cpp" />
@@ -163,8 +165,11 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameBall.h" />
     <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="IAudioProvider.h" />
     <ClInclude Include="MainMenu.h" />
     <ClInclude Include="PlayerPaddle.h" />
+    <ClInclude Include="ServiceLocator.h" />
+    <ClInclude Include="SFMLSoundProvider.h" />
     <ClInclude Include="SplashScreen.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="VisibleGameObject.h" />

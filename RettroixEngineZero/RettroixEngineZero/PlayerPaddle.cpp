@@ -5,7 +5,7 @@
 //define default values for _velocity and _maxVelocity
 PlayerPaddle::PlayerPaddle() :
   _velocity(0),
-  _maxVelocity(600.0f)
+  _maxVelocity(300.0f)
 {
   //Load the image file / sprite data within the constructor
   Load("images/paddle.png");
