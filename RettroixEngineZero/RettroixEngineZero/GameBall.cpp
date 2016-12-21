@@ -1,6 +1,7 @@
 #include "StdAfx.h"
 #include "GameBall.h"
 #include "Game.h"
+#include "ServiceLocator.h"
 
 GameBall::GameBall() :
   _velocity(230.0f),
@@ -9,6 +10,7 @@ GameBall::GameBall() :
 {
   Load("images/ball.png");
   assert(IsLoaded());
+  ServiceLocator::GetAudio()->PlaySong("audio/Soundtrack.ogg", true);
 
   GetSprite().setOrigin(15, 15);
   float random_integer = std::rand() % 360 + 1; //Gives random number between 1 and 360.
@@ -84,7 +86,7 @@ void GameBall::Update(float elapsedTime) //Parameter is the time since last fram
         _angle += 20.0f;
         if (_angle > 360.0f) _angle = _angle - 360.0f;
       }
-      ServiceLocator::GetAudio()->PlaySound("audio/kaboom.wav");
+      ServiceLocator::GetAudio()->PlaySound("audio/Kaboom.ogg");
 
       _velocity += 5.0f;
     }

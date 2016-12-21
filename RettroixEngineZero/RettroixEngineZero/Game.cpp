@@ -2,6 +2,8 @@
 #include "SplashScreen.h"
 #include "MainMenu.h"
 #include "Gameball.h"
+#include "ServiceLocator.h"
+
 void Game::Start(void)
 {
   //The game state should start uninitialized so return if it is  
@@ -15,6 +17,8 @@ void Game::Start(void)
 
   SFMLSoundProvider soundProvider;
   ServiceLocator::RegisterServiceLocator(&soundProvider);
+  ServiceLocator::GetAudio()->PlaySong("audio/kaboom.wav", true);
+
   ServiceLocator::GetAudio()->PlaySong("audio/Soundtrack.ogg", true);
   //add player to game object and positions
   PlayerPaddle *player1 = new PlayerPaddle();

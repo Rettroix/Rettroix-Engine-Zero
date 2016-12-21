@@ -3,6 +3,8 @@
 #include "stdafx.h"
 #include <string.h>
 #include "IAudioProvider.h"
+#include "SoundFileCache.h"
+
 
 class SFMLSoundProvider : public IAudioProvider
 {
@@ -18,7 +20,9 @@ public:
   bool IsSongPlaying();
 
 private:
-  sf::SoundBuffer _soundBuffer;
-  sf::Sound _sound;
-  sf::Music _music;
+  static const int MAX_SOUND_CHANNELS = 5;
+
+  SoundFileCache _soundFileCache;
+  sf::Sound   _currentSounds[MAX_SOUND_CHANNELS];
+  std::string _currentSongName;
 };
