@@ -25,6 +25,8 @@ void Game::Start(void)
   player1->SetPosition((1024 / 2) - 45, 700);
   _gameObjectManager.Add("Paddle1", player1);
 
+
+
   GameBall *ball = new GameBall();
   ball->SetPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2) - 15);
   _gameObjectManager.Add("Ball", ball);
@@ -88,12 +90,17 @@ void Game::GameLoop()
         //when playing
       case Game::GameState::Playing:
       {
+
         //clear the screen to black
         _mainWindow.clear(sf::Color(0, 0, 0));
+        sf::RectangleShape playRectangle(sf::Vector2f(0, 0));
+        playRectangle.setSize(sf::Vector2f(400, 67));
+        playRectangle.setPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
+        _mainWindow.draw(playRectangle);
         //draw the game objects to screen
         _gameObjectManager.DrawAll(_mainWindow);
         _gameObjectManager.UpdateAll();
-
+        
         //then display it
         _mainWindow.display();
 

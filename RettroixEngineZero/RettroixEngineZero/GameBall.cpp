@@ -72,20 +72,20 @@ void GameBall::Update(float elapsedTime) //Parameter is the time since last fram
         SetPosition(GetPosition().x, player1->GetBoundingRect().top - GetWidth() / 2 - 1);
       }
 
-      // Give ball spin  
-      float playerVelocity = player1->GetVelocity();
+      //// Give ball spin  
+      //float playerVelocity = player1->GetVelocity();
 
-      if (playerVelocity < 0)
-      {
-        // moving left
-        _angle -= 20.0f;
-        if (_angle < 0) _angle = 360.0f - _angle;
-      }
-      else if (playerVelocity > 0)
-      {
-        _angle += 20.0f;
-        if (_angle > 360.0f) _angle = _angle - 360.0f;
-      }
+      //if (playerVelocity < 0)
+      //{
+      //  // moving left
+      //  _angle -= 20.0f;
+      //  if (_angle < 0) _angle = 360.0f - _angle;
+      //}
+      //else if (playerVelocity > 0)
+      //{
+      //  _angle += 20.0f;
+      //  if (_angle > 360.0f) _angle = _angle - 360.0f;
+      //}
       ServiceLocator::GetAudio()->PlaySound("audio/Kaboom.ogg");
 
       _velocity += 5.0f;

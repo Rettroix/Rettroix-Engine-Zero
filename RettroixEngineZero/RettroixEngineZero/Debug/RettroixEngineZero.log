@@ -1,5 +1,3 @@
-﻿  GameBall.cpp
-c:\users\elliot anderson\documents\github\rettroixenginezero\rettroixenginezero\rettroixenginezero\gameball.cpp(16): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-c:\users\elliot anderson\documents\github\rettroixenginezero\rettroixenginezero\rettroixenginezero\gameball.cpp(106): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+﻿  MainMenu.cpp
   RettroixEngineZero.vcxproj -> C:\Users\Elliot Anderson\Documents\GitHub\RettroixEngineZero\RettroixEngineZero\Debug\RettroixEngineZero.exe
   RettroixEngineZero.vcxproj -> C:\Users\Elliot Anderson\Documents\GitHub\RettroixEngineZero\RettroixEngineZero\Debug\RettroixEngineZero.pdb (Full PDB)

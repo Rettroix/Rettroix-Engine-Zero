@@ -2,6 +2,11 @@
 #include "SFML\Window.hpp"
 #include "SFML\Graphics.hpp"
 #include "stdafx.h"
+struct MenuText
+{
+public:
+  sf::Text text[2];
+};
 
 class MainMenu
 {
@@ -19,11 +24,16 @@ public:
     //value to return if menu item is clicked
     MenuResult action;
   };
+  MenuText menu;
+
 
   MenuResult Show(sf::RenderWindow& window);
 
 private:
+
   MenuResult GetMenuResponse(sf::RenderWindow& window);
   MenuResult HandleClick(int x, int y);
+
   std::list<MenuItem> _menuItems;
 };
+
