@@ -4,13 +4,12 @@
 using namespace std;
 
 
+
 MainMenu::MenuResult MainMenu::Show(sf::RenderWindow& window)
 {
-
-  //Load menu image from file
-  sf::Texture image;
-  //image.loadFromFile("images/mainmenu.png");
-  sf::Sprite sprite(image);
+  
+  image.loadFromFile("images/sky.png");
+  sprite.setTexture(image);
 
   //Setup clickable regions
 
@@ -53,7 +52,6 @@ MainMenu::MenuResult MainMenu::Show(sf::RenderWindow& window)
   _menuItems.push_back(exitButton);
 
   //draw and display menu
-  window.draw(sprite);
   window.draw(menu.text[0]);
   window.draw(menu.text[1]);
   window.display();
@@ -90,13 +88,16 @@ MainMenu::MenuResult MainMenu::HandleClick(int x, int y)
 MainMenu::MenuResult  MainMenu::GetMenuResponse(sf::RenderWindow& window)
 {
   sf::Event menuEvent;
+  //Load menu image from file
 
   //infinite loop
   while (42 != 43)
   {
+
     cout << sf::Mouse::getPosition(window).x << endl;
 
     window.clear(sf::Color(0, 0, 0));
+    window.draw(sprite);
 
     //mouse over play button
     if (sf::Mouse::getPosition(window).x > 100 && sf::Mouse::getPosition(window).x < 300 &&

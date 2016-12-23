@@ -2,6 +2,7 @@
 #include "SFML\Window.hpp"
 #include "SFML\Graphics.hpp"
 #include "stdafx.h"
+
 struct MenuText
 {
 public:
@@ -30,6 +31,8 @@ public:
   MenuResult Show(sf::RenderWindow& window);
 
 private:
+  sf::Texture image;
+  sf::Sprite sprite;
 
   MenuResult GetMenuResponse(sf::RenderWindow& window);
   MenuResult HandleClick(int x, int y);

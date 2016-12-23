@@ -1,3 +1,4 @@
-﻿  MainMenu.cpp
+﻿  Game.cpp
+c:\users\elliot anderson\documents\github\rettroixenginezero\rettroixenginezero\rettroixenginezero\game.cpp(68): warning C4172: returning address of local variable or temporary: currentEvent
   RettroixEngineZero.vcxproj -> C:\Users\Elliot Anderson\Documents\GitHub\RettroixEngineZero\RettroixEngineZero\Debug\RettroixEngineZero.exe
   RettroixEngineZero.vcxproj -> C:\Users\Elliot Anderson\Documents\GitHub\RettroixEngineZero\RettroixEngineZero\Debug\RettroixEngineZero.pdb (Full PDB)

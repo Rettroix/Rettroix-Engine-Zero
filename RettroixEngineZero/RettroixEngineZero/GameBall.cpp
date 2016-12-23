@@ -6,7 +6,9 @@
 GameBall::GameBall() :
   _velocity(230.0f),
   //represents the time since the game gameball was created
-  _elapsedTimeSinceStart(0.0f)
+  _elapsedTimeSinceStart(0.0f),
+  _runYet(false)
+
 {
   Load("images/ball.png");
   assert(IsLoaded());
@@ -26,10 +28,17 @@ GameBall::~GameBall()
 
 void GameBall::Update(float elapsedTime) //Parameter is the time since last frame in seconds. VERY small number.
 {
-  _elapsedTimeSinceStart += elapsedTime;
+  if (_runYet == false)
+  {
+    _runYet = true;
 
+  }
+  else
+  {
+    _elapsedTimeSinceStart += elapsedTime;
+  }
   // Delay game from starting until 3 seconds have passed
-  if (_elapsedTimeSinceStart < 3.0f)
+  if (_elapsedTimeSinceStart < 1.0f)
     return;
 
   float moveAmount = _velocity  * elapsedTime;

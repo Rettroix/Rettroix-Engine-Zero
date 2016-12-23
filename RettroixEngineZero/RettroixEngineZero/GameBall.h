@@ -14,6 +14,7 @@ private:
   float _velocity;
   float _angle;
   float _elapsedTimeSinceStart;
+  bool _runYet;
 
   float LinearVelocityX(float angle);
   float LinearVelocityY(float angle);

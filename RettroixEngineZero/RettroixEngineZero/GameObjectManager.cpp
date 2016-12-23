@@ -52,6 +52,9 @@ int GameObjectManager::GetObjectCount() const
 
 void GameObjectManager::DrawAll(sf::RenderWindow& renderWindow)
 {
+  //show mouse coordinates
+  cout << "X: " << sf::Mouse::getPosition(renderWindow).x << " Y: " << sf::Mouse::getPosition(renderWindow).y << endl;
+
   std::map<std::string, VisibleGameObject*>::const_iterator itr = _gameObjects.begin();
   while (itr != _gameObjects.end())
   {

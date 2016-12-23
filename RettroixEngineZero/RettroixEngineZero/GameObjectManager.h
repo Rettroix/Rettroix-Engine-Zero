@@ -1,5 +1,6 @@
 #pragma once
 #include "VisibleGameObject.h"
+using namespace std;
 
 class GameObjectManager
 {

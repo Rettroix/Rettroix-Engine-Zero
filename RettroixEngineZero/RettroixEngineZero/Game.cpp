@@ -3,6 +3,7 @@
 #include "MainMenu.h"
 #include "Gameball.h"
 #include "ServiceLocator.h"
+#include "Brick.h"
 
 void Game::Start(void)
 {
@@ -25,6 +26,10 @@ void Game::Start(void)
   player1->SetPosition((1024 / 2) - 45, 700);
   _gameObjectManager.Add("Paddle1", player1);
 
+  //add bricks
+  Brick *brick = new Brick();
+  brick->SetPosition(600, 264);
+  _gameObjectManager.Add("brick", brick);
 
 
   GameBall *ball = new GameBall();
@@ -92,11 +97,11 @@ void Game::GameLoop()
       {
 
         //clear the screen to black
-        _mainWindow.clear(sf::Color(0, 0, 0));
-        sf::RectangleShape playRectangle(sf::Vector2f(0, 0));
-        playRectangle.setSize(sf::Vector2f(400, 67));
-        playRectangle.setPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
-        _mainWindow.draw(playRectangle);
+        _mainWindow.clear(sf::Color(0, 0, 255));
+        //sf::RectangleShape playRectangle(sf::Vector2f(0, 0));
+        //playRectangle.setSize(sf::Vector2f(400, 67));
+        //playRectangle.setPosition((SCREEN_WIDTH / 2), (SCREEN_HEIGHT / 2));
+        //_mainWindow.draw(playRectangle);
         //draw the game objects to screen
         _gameObjectManager.DrawAll(_mainWindow);
         _gameObjectManager.UpdateAll();
